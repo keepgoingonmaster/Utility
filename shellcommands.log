@@ -1,1 +1,11 @@
+[root@Qel-EA-DI MD112]# showmount -e 127.0.0.1
+clnt_create: RPC: Program not registered
 
+
+[root@Qel-EA-DI MD112]# service nfs restart
+[root@Qel-EA-DI MD112]# showmount -e 127.0.0.1
+Export list for 127.0.0.1:
+/build/clusterCaches  *
+/build/ClusterCache   *
+/build                *
+/build/cachefilesJine *
