@@ -9,3 +9,5 @@ Export list for 127.0.0.1:
 /build/ClusterCache   *
 /build                *
 /build/cachefilesJine *
+
+ grep -v "session" ../rwd.log | egrep -io "THR:[0-9]+.*SID:.{32}" | grep -v -i "back" | sort | uniq
