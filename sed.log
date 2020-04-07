@@ -1,0 +1,2 @@
+# "-i" means replace in original file
+sed  -i 's|HKEY_LOCAL_MACHINE\\SOFTWARE\\MicroStrategy\\Data Sources\\CastorServer]|&\n"Reserved Disk Space(GB)"=dword:00000001|'  MSIReg.reg
