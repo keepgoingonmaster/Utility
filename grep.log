@@ -1,0 +1,1 @@
+grep -v "session" ../rwd.log | egrep -io "THR:[0-9]+.*SID:.{32}" | grep -v -i "back" | sort | uniq
