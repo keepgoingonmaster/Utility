@@ -1,0 +1,4 @@
+ctime=$(date +%Y%m%d%H%M%S)
+filename="MSTR_CacheStat_$ctime.txt"
+
+start_time=`date +%s`
