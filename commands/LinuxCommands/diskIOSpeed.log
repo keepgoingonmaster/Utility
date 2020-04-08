@@ -15,3 +15,9 @@ sudo iotop -o
 
 # Run the nfsiostat command to see the I/O statistics for Network File System(NFS)
 nfsiostat
+
+# Run the iostat command with -d option to see I/O statistics for all the devices
+iostat -d 1 5
+
+# Show IO speed per partition
+iostat -d -p 1 5
