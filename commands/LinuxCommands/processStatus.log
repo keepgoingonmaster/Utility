@@ -1,0 +1,3 @@
+'D' state code means that process is in uninterruptible sleep, and that may mean different things but it is usually I/O. 
+lockd is in-kernel daemon that manages NFS locking. You problem indeed needs more debugging, but overall it seems to be in NFS 
+communication.
