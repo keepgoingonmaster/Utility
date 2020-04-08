@@ -1,4 +1,17 @@
+# display IO speed per process
+# iotop watches I/O usage information output by the Linux kernel and displays a table of current I/O usage by processes or threads on the system.
+# It displays the I/O bandwidth read and written by each process/thread. It also displays the percentage of time the thread/process spent 
+# while swapping in and while waiting on I/O.
+
+# Total DISK READ and Total DISK WRITE values represent total read and write bandwidth between processes and kernel threads on the one side 
+# and kernel block device subsystem on the other.
+
+# Actual DISK READ and Actual DISK WRITE values represent corresponding bandwidths for actual disk I/O between kernel block device subsystem 
+# and underlying hardware (HDD, SSD, etc.).
 sudo iotop
 
 # If you would like to check which process are actually doing IO then run the iotop command with -o or --only option
 sudo iotop -o
+
+# Run the nfsiostat command to see the I/O statistics for Network File System(NFS)
+nfsiostat
