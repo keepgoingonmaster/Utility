@@ -1,1 +1,4 @@
 sudo iotop
+
+# If you would like to check which process are actually doing IO then run the iotop command with -o or --only option
+sudo iotop -o
