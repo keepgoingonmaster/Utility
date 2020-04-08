@@ -1,2 +1,5 @@
 # "-i" means replace in original file
 sed  -i 's|HKEY_LOCAL_MACHINE\\SOFTWARE\\MicroStrategy\\Data Sources\\CastorServer]|&\n"Reserved Disk Space(GB)"=dword:00000001|'  MSIReg.reg
+
+sudo sed -i '/github.microstrategy.com/d' /etc/hosts
+echo "10.27.31.224 github.microstrategy.com" | sudo tee -a /etc/hosts
