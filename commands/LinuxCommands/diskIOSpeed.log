@@ -8,6 +8,7 @@
 
 # Actual DISK READ and Actual DISK WRITE values represent corresponding bandwidths for actual disk I/O between kernel block device subsystem 
 # and underlying hardware (HDD, SSD, etc.).
+# utilization broken out by process
 sudo iotop
 
 # If you would like to check which process are actually doing IO then run the iotop command with -o or --only option
@@ -17,7 +18,9 @@ sudo iotop -o
 nfsiostat
 
 # Run the iostat command with -d option to see I/O statistics for all the devices
+# utilization broken out by device
 iostat -d 1 5
 
 # Show IO speed per partition
+# utilization broken out by partition
 iostat -d -p 1 5
