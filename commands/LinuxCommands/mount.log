@@ -10,4 +10,9 @@ Export list for 127.0.0.1:
 /build                *
 /build/cachefilesJine *
 
+Implement the automatically mount
+1. vim /etc/fstab
+2. add below item
+ fs-fb7d417b.efs.us-east-1.amazonaws.com:/ /caching nfs4 _netdev,nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0
+
  
