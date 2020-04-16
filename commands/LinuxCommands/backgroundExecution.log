@@ -1,0 +1,14 @@
+#on the fly to bring shell script to background execution
+[Step]
+1. On current shell
+2. Press ‘CTRL+Z’ which will suspend the current foreground job
+3. press "bg"
+4. Check all background, by command "jobs"
+
+[mstr@env-187721laio1use1 cachePerformance]$ ./extractCache100k.sh 100k 6
+^Z
+[1]+  Stopped                 ./extractCache100k.sh 100k 6
+[mstr@env-187721laio1use1 cachePerformance]$ bg
+[1]+ ./extractCache100k.sh 100k 6 &
+[mstr@env-187721laio1use1 cachePerformance]$ jobs
+[1]+  Running                 ./extractCache100k.sh 100k 6 &
