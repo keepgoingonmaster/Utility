@@ -12,3 +12,6 @@
 [1]+ ./extractCache100k.sh 100k 6 &
 [mstr@env-187721laio1use1 cachePerformance]$ jobs
 [1]+  Running                 ./extractCache100k.sh 100k 6 &
+
+
+### https://www.thegeekstuff.com/2010/05/unix-background-job/
