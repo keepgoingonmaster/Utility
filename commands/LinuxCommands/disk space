@@ -1,1 +1,22 @@
 df -h | sort -k 5,5  -n -r
+[mstr@env-197483laio1use1 /]$ df -h | sort -k 5,5  -n -r
+/dev/xvda2                                            20G   20G  208M  99% /
+/dev/xvdb2                                           4.8G  1.5G  3.1G  33% /opt/usher
+/dev/xvdb3                                           178G   26G  143G  16% /opt/mstr
+/dev/xvdb1                                            15G  2.0G   12G  15% /opt/apache/tomcat
+tmpfs                                                 15G   70M   15G   1% /run
+tmpfs                                                 15G   12K   15G   1% /dev/shm
+fs-fb7d417b.efs.us-east-1.amazonaws.com:/            8.0E  3.2T  8.0E   1% /caching
+10.250.144.213:/saas_data/usher/networkmgr/download  8.0E   93G  8.0E   1% /opt/usher/networkmgr/download
+
+
+
+[mstr@env-197483laio1use1 /]$ lsblk
+NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+xvda    202:0    0   20G  0 disk 
+\u251c\u2500xvda1 202:1    0    1M  0 part 
+\u2514\u2500xvda2 202:2    0   20G  0 part /
+xvdb    202:16   0  200G  0 disk 
+\u251c\u2500xvdb1 202:17   0   15G  0 part /opt/apache/tomcat
+\u251c\u2500xvdb2 202:18   0    5G  0 part /opt/usher
+\u2514\u2500xvdb3 202:19   0  180G  0 part /opt/mstr
