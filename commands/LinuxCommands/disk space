@@ -20,3 +20,21 @@ xvdb    202:16   0  200G  0 disk
 \u251c\u2500xvdb1 202:17   0   15G  0 part /opt/apache/tomcat
 \u251c\u2500xvdb2 202:18   0    5G  0 part /opt/usher
 \u2514\u2500xvdb3 202:19   0  180G  0 part /opt/mstr
+
+sudo du -hx --max-depth=1 | sort -h
+du: cannot access \u2018./home/mstr/.gvfs\u2019: Permission denied
+0	./config
+0	./data
+0	./media
+0	./mnt
+0	./srv
+40K	./tmp
+88K	./test-reports
+66M	./etc
+69M	./home
+302M	./boot
+1.4G	./opt
+2.9G	./var
+4.9G	./usr
+10G	./root
+20G	
