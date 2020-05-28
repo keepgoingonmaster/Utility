@@ -38,3 +38,7 @@ du: cannot access \u2018./home/mstr/.gvfs\u2019: Permission denied
 4.9G	./usr
 10G	./root
 20G	
+
+[mstr@env-197483laio1use1 /]$ sudo rm -rf  /root/.cache/pip/wheels/fc
+[mstr@env-197483laio1use1 /]$ sudo ls -la  /root/.cache/pip/wheels | wc -l
+
