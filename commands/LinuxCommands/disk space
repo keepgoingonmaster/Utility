@@ -42,3 +42,34 @@ du: cannot access \u2018./home/mstr/.gvfs\u2019: Permission denied
 [mstr@env-197483laio1use1 /]$ sudo rm -rf  /root/.cache/pip/wheels/fc
 [mstr@env-197483laio1use1 /]$ sudo ls -la  /root/.cache/pip/wheels | wc -l
 
+[mstr@env-197483laio1use1 /]$ sudo du -hx --max-depth=1 / | sort -h
+du: cannot access \u2018/home/mstr/.gvfs\u2019: Permission denied
+0	/config
+0	/data
+0	/media
+0	/mnt
+0	/srv
+48K	/tmp
+88K	/test-reports
+66M	/etc
+69M	/home
+159M	/root
+302M	/boot
+1.4G	/opt
+3.0G	/var
+4.9G	/usr
+9.9G	/
+
+[mstr@env-197483laio1use1 /]$ sudo du -hx --max-depth=1 /root | sort -h
+0	/root/.pki
+4.0K	/root/.aws
+4.0K	/root/.ssh
+1.1M	/root/.berkshelf
+21M	/root/.chef
+32M	/root/.bundle
+88M	/root/.cache
+159M	/root
+
+sudo ls -la  /root/.cache/pip/wheels | awk '{print $9}' > /opt/mstr/tmp.log
+
+
