@@ -1,0 +1,3 @@
+#specify type
+find . -type d -iname "*cube*"
+find . -type f -iname "*cube*"
