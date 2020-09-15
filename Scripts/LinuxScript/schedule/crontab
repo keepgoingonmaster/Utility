@@ -1,0 +1,5 @@
+#0 */3 * * * /build/StartKafkaCron1.sh
+#3 */3 * * * /build/StartKafkaCron2.sh
+#0 1 * * * /build/106GA/MicroStrategy/IntelligenceServer/PDFExportService/pdfexporter.sh restart
+* * * * * /build/11.0.0033.0141/MicroStrategy/ServicesRegistration/bin/consul.sh autorestart 2> /dev/null
+30 * * * * /build/11.1GA/MicroStrategy/_jre/bin/java -jar /build/11.1GA/MicroStrategy/ServicesRegistration/jar/svcsreg-admin.jar control consul autorestart > /dev/null
