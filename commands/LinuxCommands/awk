@@ -1,0 +1,4 @@
+awk  -F "," '{for (i = 1; i < NF; i++) if ($i~/cubes loaded in memory/) print $i;}' DSSPerformanceMonitor29556.csv 
+awk  -F "," '{for (i = 1; i < NF; i++) if ($i~/cubes loaded in memory/) print i;}' DSSPerformanceMonitor29556.csv 
+
+awk  -F "," '{ if (NR>1) print $9;}' DSSPerformanceMonitor29556.csv 
