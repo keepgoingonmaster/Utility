@@ -1,16 +1,28 @@
 #!/bin/sh
-if [ "$#" -ne 1 ]; then
-    echo "Illegal number of parameters, please provide the server level setting value which default is 70"
-    exit
-fi
 
-#maxcache=`echo  - | awk -v v1=$1 '{print v1/10.0}'`
-maxcache=$1
-echo ${maxchche}
-
+red=$(tput setaf 1)
 blue=$(tput setaf 4)
 normal=$(tput sgr0)
 green=$(tput setaf 2)
+
+if [ "$#" -ne 1 ]; then
+    printf "${red}"
+    printf "Illegal number of parameters, please provide the server level setting value which default is 70\n"
+    printf "${normal}"
+    exit
+fi
+
+logfile="/opt/mstr/MicroStrategy/log/cube.log"
+
+if [ ! -f  $logfile ]; then
+    printf "${red}"
+    printf 'Please enable the cube trace log with specific name "cube.log"\n'
+    printf "${normal}"
+    exit
+fi
+
+maxcache=$1
+echo ${maxchche}
 
 noMemoryLimitOnContainer=9223372036854771712
 containerlimit=`cat /sys/fs/cgroup/memory/memory.limit_in_bytes`
@@ -36,13 +48,17 @@ fi
 actualTotalInBytes=${baseTotalInBytes}
 actualTotalInKBytes=$(( ${baseTotalInBytes}/1024 ))
 
-cd /opt/mstr/MicroStrategy/log
 pid=`pgrep MSTRSvr`
-sed -n -e 's/.*PID:'"$pid"'.*Server level memory usage is updated: delta = \(.*[[:alnum:]]\+\), usage = \([[:alnum:]]\+\), space = \([[:alnum:]]\+\)/\1 \2 \3/p' cube.log > tmp.log
+sed -n -e 's/.*PID:'"$pid"'.*Server level memory usage is updated: delta = \(.*[[:alnum:]]\+\), usage = \([[:alnum:]]\+\), space = \([[:alnum:]]\+\)/\1 \2 \3/p' $logfile > tmp.log
 
 totalLimitInCubeTrace=`awk '{print $2+$3}' tmp.log | tail -1`
-assumedTotalFromLogInKBytes=`echo  - | awk -v v1=${totalLimitInCubeTrace} -v v2=${maxcache} '{v3=v1*100/v2;print int(v3)}'`
-assumedTotalFromLogInBytes=`echo  - | awk -v v1=${totalLimitInCubeTrace} -v v2=${maxcache} '{v3=v1*100*1024/v2;print int(v3)}'`
+if [ ${maxcache} -eq 0 ]; then
+    assumedTotalFromLogInKBytes=0
+    assumedTotalFromLogInBytes=0
+else
+    assumedTotalFromLogInKBytes=`echo  - | awk -v v1=${totalLimitInCubeTrace} -v v2=${maxcache} '{v3=v1*100/v2;print int(v3)}'`
+    assumedTotalFromLogInBytes=`echo  - | awk -v v1=${totalLimitInCubeTrace} -v v2=${maxcache} '{v3=v1*100*1024/v2;print int(v3)}'`
+fi
 echo $assumedTotalInBytes $assumedTotalInKBytes
 
 
