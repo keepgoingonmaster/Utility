@@ -6,7 +6,6 @@ bold=$(tput bold)
 normal=$(tput sgr0)
 
 filelog="/opt/mstr/MicroStrategy/log/cube.log"
-factor=2
 
 if [ ! -f ${filelog} ]; then
     printf "${red}"
