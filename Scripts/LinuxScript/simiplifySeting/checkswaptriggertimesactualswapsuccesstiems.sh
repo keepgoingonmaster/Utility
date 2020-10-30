@@ -21,7 +21,7 @@ awk '/Cube Manager:Swap: for cube instance/ {print}' cube.log > tmp_swap.log
 
 swappattern='(THR:.*?) Cube Manager:Swap:.*for cube instance (.*?) needing size (.*?)K, attempt'
 
-swapTriggerNO=`wc -l tmp_swap.log `
+swapTriggerNO=`wc -l tmp_swap.log | awk '{print $1}' `
 swapDoneNO=0
 
 while IFS= read -r line
